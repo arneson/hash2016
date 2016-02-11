@@ -14,5 +14,9 @@ public class main {
 			Universe.MAX_LOAD = Integer.parseInt(items[4]);
 			Universe.NUMBER_OF_DRONES = Integer.parseInt(items[2]);
 		}
+		int maxProduct = 0;
+
 	}
 }
+
+
