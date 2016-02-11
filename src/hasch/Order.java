@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order implements Comparable<Order>{
+    public ArrayList<OrderLine> items;
+    public int posX;
+    public int posY;
+
 	public Order(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
 		items = new ArrayList();
 	}
-	private ArrayList<OrderLine> items;
-	int posX;
-	int posY;
+
 	public void addItem(Product p){
 		int index = items.indexOf(p);
 		if(index>0){
