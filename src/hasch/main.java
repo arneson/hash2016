@@ -63,7 +63,7 @@ public class main {
 
 			String result = Algo.veryEasyHandle();
 
-			
+			int maxProduct = 0;
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

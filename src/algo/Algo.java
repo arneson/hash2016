@@ -69,7 +69,7 @@ public class Algo {
                     sb.append(droneid + " L " + 1 + " " + line.lineItem.id + " " + 0 + "\n");
                     sb.append(droneid + " D " + 0 + " " + 1 + " " + line.lineItem.id + "\n");
                     line.amount -= 1;
-                    count++;
+                    count+=2;
                     done = false;
                     break;
                 }
