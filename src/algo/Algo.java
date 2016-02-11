@@ -31,13 +31,53 @@ public class Algo {
 
     List<Drone> drones;
     List<Order> orders;
+    List<Warehouse> warehouses;
+
+    void easyHandle(){
+        StringBuilder sb = new StringBuilder();
+
+        Order order = orders.get(0);
+        Warehouse warehouse = warehouses.get(0);
+
+
+        int droneid = 0;
+        for (Drone drone : drones){
+            int weight = Universe.MAX_LOAD;
+            for (OrderLine line : order.items){
+                if (line.amount * line.lineItem.weight > weight){
+
+                }else{
+                    sb.append(droneid + " L " + line.amount + " " + line.lineItem.id + " " + Universe.)
+                }
+
+            }
+
+            droneid++;
+        }
+        sb.append()
+    }
 
     void handle(){
         Collections.sort(orders);
 
         while(true) {
             List<Order> current = Util.part(0.33, orders);
-            //List<ProductLine> products = Util.extractProducts()
+            List<ProductLine> products = Util.extractProducts(current);
+            Collections.sort(products);
+
+            while (true) {
+                for(Warehouse warehouse : warehouses) {
+                    Drone drone = Util.firstDroneAt(drones, warehouse);
+                    if (drone != null){
+                        // Drone at the warehouse
+                        List<ProductLine> productsAtWarehouse = warehouse.hasProducts(products);
+                        if (productsAtWarehouse.size() > 0){
+                            //  work to do
+
+                        }
+                    }
+                }
+            }
         }
     }
 

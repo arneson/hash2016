@@ -1,9 +1,6 @@
 package algo;
 
-import hasch.Order;
-import hasch.OrderLine;
-import hasch.Product;
-import hasch.ProductLine;
+import hasch.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +29,21 @@ public class Util {
         // TODO Slå samman alla productlinor så det endast finns ett av varje namn (nu finns det flera bananer med olika antal)
 
         return products;
+    }
+
+    public static Drone firstDroneAt(List<Drone> drones, Warehouse warehouse){
+        for(Drone d : drones){
+            if (warehouse.posX == d.posX && warehouse.posY == d.posY)
+                return d;
+        }
+        return null;
+    }
+
+    public static List<Order> ordersWeCanSupply(List<Order> orders, List<ProductLine> products){
+        List<Order> suppliedOrders = new ArrayList<>();
+        for (Order o : orders){
+            if (o.items)
+        }
     }
 
 }

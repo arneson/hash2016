@@ -1,8 +1,8 @@
 package hasch;
 
 public abstract class ProductLine implements Comparable<ProductLine> {
-	Product lineItem;
-	int amount;
+	public Product lineItem;
+	public int amount;
 	public ProductLine(){
 		
 	}
