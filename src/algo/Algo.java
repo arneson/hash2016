@@ -1,5 +1,12 @@
 package algo;
 
+import hasch.*;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Package: algo
  * Author: Joakim
@@ -22,7 +29,17 @@ public class Algo {
             // Take the choice with smallest best
             // Send that drone (decrease necessary values)
 
+    List<Drone> drones;
+    List<Order> orders;
 
+    void handle(){
+        Collections.sort(orders);
+
+        while(true) {
+            List<Order> current = Util.part(0.33, orders);
+            List<ProductLine> products = Util.extractProducts()
+        }
+    }
 
 
 
