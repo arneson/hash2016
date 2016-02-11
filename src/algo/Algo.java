@@ -65,19 +65,25 @@ public class Algo {
                 OrderLine line = order.items.get(0);
 
                 int wid = 0;
+                boolean found = false;
                 for (Warehouse house : Universe.warehouses){
                     for (WarehouseItem item : house.items){
                         if (item.lineItem.id == line.lineItem.id){
                             if (item.amount > 0){
                                 sb.append(droneid + " L " + wid + " " + line.lineItem.id + " " + 1 + "\n");
                                 sb.append(droneid + " D " + orderid + " " + line.lineItem.id + " " + 1 + "\n");
-                                line.amount -= 1;
+                                line.amount--;
+                                item.amount--;
                                 if (line.amount == 0){
                                     order.items.remove(0);
                                 }
                                 count+=2;
+                                found = true;
+                                break;
                             }
                         }
+                        if (found)
+                            break;
                     }
                     wid++;
                 }
