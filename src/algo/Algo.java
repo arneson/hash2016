@@ -67,9 +67,11 @@ public class Algo {
             for (OrderLine line : order.items){
                 if (line.amount > 0) {
                     sb.append(droneid + " L " + 1 + " " + line.lineItem.id + " " + 0 + "\n");
+                    sb.append(droneid + " D " + 0 + " " + 1 + " " + line.lineItem.id + "\n");
                     line.amount -= 1;
                     count++;
                     done = false;
+                    break;
                 }
             }
 
