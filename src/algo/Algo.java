@@ -56,34 +56,34 @@ public class Algo {
     public static String veryEasyHandle(){
         StringBuilder sb = new StringBuilder();
 
-        Order order = Universe.orders[0];
-
         int droneid = 0;
         int count = 0;
 
-        while(order.items.size() > 0){
-            OrderLine line = order.items.get(0);
+        int orderid = 0;
+        for (Order order : Universe.orders){
+            while(order.items.size() > 0){
+                OrderLine line = order.items.get(0);
 
-            int wid = 0;
-            for (Warehouse house : Universe.warehouses){
-                for (WarehouseItem item : house.items){
-                    if (item.lineItem.id == line.lineItem.id){
-                        if (item.amount > 0){
-                            sb.append(droneid + " L " + line.lineItem.id + " " + wid + " " + 1 + "\n");
-                            sb.append(droneid + " D " + 0 + " " + line.lineItem.id + " " + 1 + "\n");
-                            line.amount -= 1;
-                            if (line.amount == 0){
-                                order.items.remove(line);
+                int wid = 0;
+                for (Warehouse house : Universe.warehouses){
+                    for (WarehouseItem item : house.items){
+                        if (item.lineItem.id == line.lineItem.id){
+                            if (item.amount > 0){
+                                sb.append(droneid + " L " + wid + " " + line.lineItem.id + " " + 1 + "\n");
+                                sb.append(droneid + " D " + orderid + " " + line.lineItem.id + " " + 1 + "\n");
+                                line.amount -= 1;
+                                if (line.amount == 0){
+                                    order.items.remove(0);
+                                }
+                                count+=2;
                             }
-                            count+=2;
                         }
                     }
+                    wid++;
                 }
-                wid++;
             }
+            orderid++;
         }
-
-
         return (count + "\n") + sb;
     }
 
