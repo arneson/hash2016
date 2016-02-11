@@ -25,13 +25,24 @@ public class Util {
 
     public static List<ProductLine> extractProducts(List<Order> orders){
         List<ProductLine> products = new ArrayList<>();
-        for(Order o : orders){
+        List<ProductLine> balancedList = new ArrayList<>();
+        for(Order o : orders) {
             products.addAll(o.items);
         }
+        for(int i = 0; i < products.size(); i++){
+            ProductLine tmpProductLine = products.get(i);
+            if(!balancedList.contains(tmpProductLine)){
+                balancedList.add(tmpProductLine);
+            } else {
+                for(int j = 0; j < balancedList.size(); j++){
+                    if(balancedList.get(j).equals(tmpProductLine)){
+                        balancedList.get(j).increase(tmpProductLine.getAmount());
+                    }
+                }
+            }
+        }
 
-        // TODO Slå samman alla productlinor så det endast finns ett av varje namn (nu finns det flera bananer med olika antal)
-
-        return products;
+        return balancedList;
     }
 
 }
