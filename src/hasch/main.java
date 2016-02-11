@@ -2,6 +2,7 @@ package hasch;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -53,6 +54,7 @@ public class main {
 			s.close();
 			Product[] p = Universe.products;
 			Order[] o = Universe.orders;
+			Universe.drones = new ArrayList<Drone>();
 			for(int d = 0; d<Universe.NUMBER_OF_DRONES;d++){
 				Universe.drones.add(new Drone());
 			}
