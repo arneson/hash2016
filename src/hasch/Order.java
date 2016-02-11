@@ -9,7 +9,7 @@ public class Order {
 	private ArrayList<OrderLine> items;
 	int posX;
 	int posY;
-	public addItem(Product p){
+	public void addItem(Product p){
 		int index = items.indexOf(p);
 		if(index>0){
 			items.get(index).increase(1);
