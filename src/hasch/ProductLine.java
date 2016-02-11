@@ -10,4 +10,13 @@ public abstract class ProductLine {
 		this.lineItem = p;
 		this.amount = amount;
 	}
+	public int getAmount(){
+		return amount;
+	}
+	public Product getProduct(){
+		return lineItem;
+	}
+	public void increase(int amount) {
+		this.amount +=amount;
+	}
 }
