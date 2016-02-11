@@ -64,24 +64,22 @@ public class Algo {
         while(order.items.size() > 0){
             OrderLine line = order.items.get(0);
 
-            if (line.amount > 0) {
-                int wid = 0;
-                for (Warehouse house : Universe.warehouses){
-                    for (WarehouseItem item : house.items){
-                        if (item.lineItem.id == line.lineItem.id){
-                            if (item.amount > 0){
-                                sb.append(droneid + " L " + 1 + " " + line.lineItem.id + " " + wid + "\n");
-                                sb.append(droneid + " D " + 0 + " " + 1 + " " + line.lineItem.id + "\n");
-                                line.amount -= 1;
-                                if (line.amount == 0){
-                                    order.items.remove(line);
-                                }
-                                count+=2;
+            int wid = 0;
+            for (Warehouse house : Universe.warehouses){
+                for (WarehouseItem item : house.items){
+                    if (item.lineItem.id == line.lineItem.id){
+                        if (item.amount > 0){
+                            sb.append(droneid + " L " + line.lineItem.id + " " + wid + " " + 1 + "\n");
+                            sb.append(droneid + " D " + 0 + " " + line.lineItem.id + " " + 1 + "\n");
+                            line.amount -= 1;
+                            if (line.amount == 0){
+                                order.items.remove(line);
                             }
+                            count+=2;
                         }
                     }
-                    wid++;
                 }
+                wid++;
             }
         }
 
