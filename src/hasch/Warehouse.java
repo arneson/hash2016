@@ -9,6 +9,7 @@ public class Warehouse {
 	public Warehouse(int posX,int posY){
 		this.posX = posX;
 		this.posY = posY;
+		this.items = new ArrayList();
 	}
 	public Warehouse(int posX,int posY,ArrayList<WarehouseItem> items){
 		this.posX = posX;
@@ -22,5 +23,11 @@ public class Warehouse {
 		}else{
 			items.add(wi);
 		}
+	}
+	public int getPosX() {
+		return posX;
+	}
+	public int getPosY() {
+		return posY;
 	}
 }

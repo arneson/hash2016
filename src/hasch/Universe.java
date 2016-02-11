@@ -10,4 +10,5 @@ public class Universe {
 	public static int NUMBER_OF_DRONES;
 	public static Product[] products;
 	public static Order[] orders;
+	public static Warehouse[] warehouses;
 }

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class Order {
 	public Order(int posX, int posY) {
-		// TODO Auto-generated constructor stub
+		this.posX = posX;
+		this.posY = posY;
+		items = new ArrayList();
 	}
 	private ArrayList<OrderLine> items;
 	int posX;
