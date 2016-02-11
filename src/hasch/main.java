@@ -1,5 +1,7 @@
 package hasch;
 
+import algo.Algo;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -58,6 +60,11 @@ public class main {
 			for(int d = 0; d<Universe.NUMBER_OF_DRONES;d++){
 				Universe.drones.add(new Drone());
 			}
+
+			String result = Algo.veryEasyHandle();
+
+			
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -53,8 +53,9 @@ public class Util {
     public static List<Order> ordersWeCanSupply(List<Order> orders, List<ProductLine> products){
         List<Order> suppliedOrders = new ArrayList<>();
         for (Order o : orders){
-            if (o.items)
+            //if (o.items)
         }
+        return null;
     }
 
 }

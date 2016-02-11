@@ -29,36 +29,60 @@ public class Algo {
             // Take the choice with smallest best
             // Send that drone (decrease necessary values)
 
-    List<Drone> drones;
-    List<Order> orders;
-    List<Warehouse> warehouses;
 
     void easyHandle(){
         StringBuilder sb = new StringBuilder();
 
-        Order order = orders.get(0);
-        Warehouse warehouse = warehouses.get(0);
-
+        Order order = Universe.orders[0];
+        //Warehouse warehouse = warehouses.get(0);
 
         int droneid = 0;
-        for (Drone drone : drones){
+        for (Drone drone : Universe.drones){
             int weight = Universe.MAX_LOAD;
             for (OrderLine line : order.items){
                 if (line.amount * line.lineItem.weight > weight){
 
                 }else{
-                    sb.append(droneid + " L " + line.amount + " " + line.lineItem.id + " " + Universe.)
+                    sb.append(droneid + " L " + line.amount + " " + line.lineItem.id + " " + 0);
                 }
 
             }
 
             droneid++;
         }
-        sb.append()
+        //sb.append()
+    }
+
+    public static String veryEasyHandle(){
+        StringBuilder sb = new StringBuilder();
+
+        Order order = Universe.orders[0];
+
+        int droneid = 0;
+        int count = 0;
+        for (Drone drone : Universe.drones){
+            int weight = Universe.MAX_LOAD;
+
+            boolean done = true;
+            for (OrderLine line : order.items){
+                if (line.amount > 0) {
+                    sb.append(droneid + " L " + 1 + " " + line.lineItem.id + " " + 0 + "\n");
+                    line.amount -= 1;
+                    count++;
+                    done = false;
+                }
+            }
+
+            droneid++;
+            if (done)
+                break;
+        }
+
+        return (count + "\n") + sb;
     }
 
     void handle(){
-        Collections.sort(orders);
+        /*Collections.sort(orders);
 
         while(true) {
             List<Order> current = Util.part(0.33, orders);
@@ -78,7 +102,7 @@ public class Algo {
                     }
                 }
             }
-        }
+        }*/
     }
 
 
