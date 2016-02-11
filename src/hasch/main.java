@@ -59,5 +59,9 @@ public class main {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		int maxProduct = 0;
+
 	}
 }
+
+
