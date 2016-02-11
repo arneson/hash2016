@@ -37,7 +37,7 @@ public class Algo {
 
         while(true) {
             List<Order> current = Util.part(0.33, orders);
-            List<ProductLine> products = Util.extractProducts()
+            //List<ProductLine> products = Util.extractProducts()
         }
     }
 

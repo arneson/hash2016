@@ -8,4 +8,6 @@ public class Universe {
 	public static int DEADLINE;
 	public static int MAX_LOAD;
 	public static int NUMBER_OF_DRONES;
+	public static Product[] products;
+	public static Order[] orders;
 }
