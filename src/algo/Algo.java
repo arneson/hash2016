@@ -60,25 +60,31 @@ public class Algo {
 
         int droneid = 0;
         int count = 0;
-        for (Drone drone : Universe.drones){
-            int weight = Universe.MAX_LOAD;
 
-            boolean done = true;
-            for (OrderLine line : order.items){
-                if (line.amount > 0) {
-                    sb.append(droneid + " L " + 1 + " " + line.lineItem.id + " " + 0 + "\n");
-                    sb.append(droneid + " D " + 0 + " " + 1 + " " + line.lineItem.id + "\n");
-                    line.amount -= 1;
-                    count++;
-                    done = false;
-                    break;
+        while(order.items.size() > 0){
+            OrderLine line = order.items.get(0);
+
+            if (line.amount > 0) {
+                int wid = 0;
+                for (Warehouse house : Universe.warehouses){
+                    for (WarehouseItem item : house.items){
+                        if (item.lineItem.id == line.lineItem.id){
+                            if (item.amount > 0){
+                                sb.append(droneid + " L " + 1 + " " + line.lineItem.id + " " + wid + "\n");
+                                sb.append(droneid + " D " + 0 + " " + 1 + " " + line.lineItem.id + "\n");
+                                line.amount -= 1;
+                                if (line.amount == 0){
+                                    order.items.remove(line);
+                                }
+                                count+=2;
+                            }
+                        }
+                    }
+                    wid++;
                 }
             }
-
-            droneid++;
-            if (done)
-                break;
         }
+
 
         return (count + "\n") + sb;
     }
