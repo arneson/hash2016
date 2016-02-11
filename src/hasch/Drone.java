@@ -7,4 +7,12 @@ public class Drone {
 	public int posX;
 	public int posY;
 	public ArrayList<DroneLoad> load;
+
+	public Drone(){
+		load = new ArrayList();
+		posX = Universe.warehouses[0].getPosX();
+		posY = Universe.warehouses[0].getPosY();
+		maxLoad = Universe.MAX_LOAD;
+	}
+
 }
